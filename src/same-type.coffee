@@ -18,7 +18,7 @@ class SameType
     return (value - parseFloat(value) + 1) >= 0
 
   parseDate: (date) =>
-    moment(date).valueOf()
+    moment.utc(date).valueOf()
 
   parseNumber: (number) =>
     parseFloat number

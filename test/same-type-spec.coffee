@@ -51,7 +51,7 @@ describe 'SameType (object syntax)', ->
         @sut = new SameType ['2014-05-02', 'May 07, 2012']
 
       it 'should return two ms since epoch', ->
-        expect(@sut.toJSON()).to.deep.equal [1399014000000, 1336374000000]
+        expect(@sut.toJSON()).to.deep.equal [1398988800000, 1336348800000]
 
     describe 'when passed two numeric things', ->
       beforeEach ->
@@ -79,7 +79,7 @@ describe '-> sameType (function syntax)', ->
       @result = @sut ['2014-05-02', 'May 07, 2012']
 
     it 'should return two ms since epoch', ->
-      expect(@result).to.deep.equal [1399014000000, 1336374000000]
+      expect(@result).to.deep.equal [1398988800000, 1336348800000]
 
   describe 'when passed two numeric things', ->
     beforeEach ->
