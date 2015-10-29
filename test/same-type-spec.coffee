@@ -53,6 +53,13 @@ describe 'SameType (object syntax)', ->
       it 'should return two ms since epoch', ->
         expect(@sut.toJSON()).to.deep.equal [1398988800000, 1336348800000]
 
+    describe 'when passed a date and undefined', ->
+      beforeEach ->
+        @sut = new SameType ['2014-05-02', undefined]
+
+      it 'should return the same items', ->
+        expect(@sut.toJSON()).to.deep.equal ['2014-05-02', undefined]
+
     describe 'when passed two numeric things', ->
       beforeEach ->
         @sut = new SameType ['123', 432, '12.3']

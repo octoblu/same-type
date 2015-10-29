@@ -11,7 +11,8 @@ class SameType
     _.all @items, @isNumeric
 
   isDate: (value) =>
-    moment(value).isValid()
+    return false unless value?
+    moment(new Date(value)).isValid()
 
   isNumeric: (value) =>
     return false if _.isNaN parseFloat value
