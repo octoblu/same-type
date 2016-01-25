@@ -10,6 +10,9 @@ class SameType
   areAllNumeric: =>
     _.all @items, @isNumeric
 
+  areAllBooleans: =>
+    _.all @items, @isBoolean
+
   isDate: (value) =>
     return false unless value?
     moment(new Date(value)).isValid()
@@ -17,6 +20,13 @@ class SameType
   isNumeric: (value) =>
     return false if _.isNaN parseFloat value
     return (value - parseFloat(value) + 1) >= 0
+
+  isBoolean: (value) =>
+    return true if value == true
+    return true if value == false
+    return true if value == 'true'
+    return true if value == 'false'
+    return false
 
   parseDate: (date) =>
     moment.utc(date).valueOf()
@@ -27,6 +37,7 @@ class SameType
   toJSON: =>
     return _.map(@items, @parseNumber) if _.all @items, @isNumeric
     return _.map(@items, @parseDate)   if @areAllDates()
+    return _.map(@items, @parseBoolean) if @areAllBooleans()
     return @items
 
 module.exports = (items) ->
