@@ -34,6 +34,9 @@ class SameType
   parseNumber: (number) =>
     parseFloat number
 
+  parseBoolean: (value) =>
+    JSON.parse value
+
   toJSON: =>
     return _.map(@items, @parseNumber) if _.all @items, @isNumeric
     return _.map(@items, @parseDate)   if @areAllDates()

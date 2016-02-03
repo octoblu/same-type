@@ -67,6 +67,35 @@ describe 'SameType (object syntax)', ->
       it 'should return 2 strings', ->
         expect(@sut.areAllBooleans()).to.be.false
 
+  describe '->parseBoolean', ->
+    describe 'when passed the string "true"', ->
+      beforeEach ->
+        @sut = new SameType
+
+      it 'should return true', ->
+        expect(@sut.parseBoolean 'true').to.be.true
+
+    describe 'when passed the string "false"', ->
+      beforeEach ->
+        @sut = new SameType
+
+      it 'should return false', ->
+        expect(@sut.parseBoolean 'false').to.be.false
+
+        describe 'when passed true', ->
+          beforeEach ->
+            @sut = new SameType
+
+          it 'should return true', ->
+            expect(@sut.parseBoolean true).to.be.true
+
+        describe 'when passed the false', ->
+          beforeEach ->
+            @sut = new SameType
+
+          it 'should return true', ->
+            expect(@sut.parseBoolean false).to.be.false
+
   describe '->toJSON', ->
     describe 'when passed two dates', ->
       beforeEach ->
