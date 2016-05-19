@@ -1,6 +1,9 @@
 _      = require 'lodash'
 moment = require 'moment'
 
+moment.createFromInputFallback = (config) =>
+  config._d = new Date(config._i + (if config._useUTC then ' UTC' else ''))
+
 class SameType
   constructor: (@items) ->
 
