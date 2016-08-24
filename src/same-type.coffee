@@ -41,9 +41,9 @@ class SameType
     JSON.parse value
 
   toJSON: =>
+    return _.map(@items, @parseBoolean) if @areAllBooleans()
     return _.map(@items, @parseNumber) if _.all @items, @isNumeric
     return _.map(@items, @parseDate)   if @areAllDates()
-    return _.map(@items, @parseBoolean) if @areAllBooleans()
     return @items
 
 module.exports = (items) ->

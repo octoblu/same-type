@@ -152,3 +152,10 @@ describe '-> sameType (function syntax)', ->
 
     it 'should return 2 strings', ->
       expect(@result).to.deep.equal ['12', 'orange']
+
+  describe 'when passed two disparate things', ->
+    beforeEach ->
+      @result = @sut [true, false]
+
+    it 'should return 2 booleans', ->
+      expect(@result).to.deep.equal [true, false]

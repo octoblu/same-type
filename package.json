@@ -1,6 +1,6 @@
 {
   "name": "same-type",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Cast all arguments to be the same type. Tries to guess if they're all numeric or dates",
   "main": "index.js",
   "scripts": {
